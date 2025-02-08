@@ -74,8 +74,9 @@ async def analyze_image(image: UploadFile = File(...), image_type: str = Form(..
 
         # Prompt for Gemini with strict formatting instructions
         prompt = f"""
-        Analyze this image of a {image_type} piece of clothing and suggest exactly 3 complementary colors.
-        
+        Analyze this image of a {image_type} wear and suggest exactly 5 complementary colors.
+        Note top wear is wore on top and bottom wear is wore on bottom. Suggest matching colors.
+        If the image is not a clothing image, and some other image, responsd with error message text.
         You must respond with a JSON array containing exactly 5 color suggestions.
         Each suggestion must have these exact fields: "ColorName", "hexCode", "description"
         
